@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-void main(List<String> args) =>  runApp(MyApp());
+void main(List<String> args) => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
   @override
@@ -10,43 +10,43 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  @override 
+  List<String> _gallery = ['Anime Image 1'];
+
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('AnimeList'),
-        ),
-        body: Column(
-          children: [
-            Container(
-              margin: EdgeInsets.all(10.0),
-              child: RaisedButton(
-                onPressed: () {
-
-                },
-                child: Text('Add an image'),
+          appBar: AppBar(
+            title: Text('Anime Gallery'),
+          ),
+          body: Column(
+            children: [
+              Container(
+                margin: EdgeInsets.all(10.0),
+                child: RaisedButton(
+                  onPressed: () {
+                    setState(() {
+                      _gallery.add(
+                          'Anime Image ' + (_gallery.length + 1).toString());
+                    });
+                  },
+                  child: Text('Add an image'),
+                ),
               ),
-            ),
-            Card(
-              child: Column(
-                children: <Widget>[
-                  Image.asset('assets/anime.jpg'),
-                  Text('Anime Image 1')
-                ],
+              Column(
+                children: _gallery
+                    .map((element) => Card(
+                          child: Column(
+                            children: <Widget>[
+                              Image.asset('assets/anime.jpg'),
+                              Text(element)
+                            ],
+                          ),
+                        ))
+                    .toList(),
               ),
-            ),
-            Card(
-              child: Column(
-                children: <Widget>[
-                  Image.asset('assets/anime2.jpg'),
-                  Text('Anime Image 2')
-                ],
-              ),
-            ),
-          ]
-        )
-      ),
+            ],
+          )),
     );
   }
 }
