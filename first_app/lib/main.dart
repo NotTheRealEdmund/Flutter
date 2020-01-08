@@ -12,6 +12,12 @@ class MyApp extends StatelessWidget {
         ),
         body: Column(
           children: [
+            Container(
+              child: RaisedButton(
+                onPressed: () {},
+                child: Text('Add an image'),
+              ),
+            ),
             Card(
               child: Column(
                 children: <Widget>[
