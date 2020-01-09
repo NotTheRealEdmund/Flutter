@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text('Anime Gallery'),
         ),
-        body: GalleryManager(),
+        body: GalleryManager('Anime Image 1'),
       ),
     );
   }

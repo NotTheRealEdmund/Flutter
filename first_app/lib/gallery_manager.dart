@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import './gallery.dart';
 
 class GalleryManager extends StatefulWidget {
+  final String startingName;
+
+  GalleryManager(this.startingName);
+
   @override
   State<StatefulWidget> createState() {
     return _GalleryManagerState();
@@ -10,7 +14,13 @@ class GalleryManager extends StatefulWidget {
 }
 
 class _GalleryManagerState extends State<GalleryManager> {
-  List<String> _gallery = ['Anime Image 1'];
+  List<String> _gallery = [];
+
+  @override
+  void initState() {
+    _gallery.add(widget.startingName);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
