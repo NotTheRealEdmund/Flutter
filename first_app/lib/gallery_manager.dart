@@ -28,7 +28,6 @@ class _GalleryManagerState extends State<GalleryManager> {
       Container(
         margin: EdgeInsets.all(10.0),
         child: RaisedButton(
-          color: Theme.of(context).primaryColor,
           onPressed: () {
             setState(() {
               _gallery.add('Anime Image ' + (_gallery.length + 1).toString());
