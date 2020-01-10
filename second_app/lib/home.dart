@@ -95,6 +95,11 @@ class _HomeState extends State<Home> {
             builder: (_) => ShowResult("Player 2 Won!",
                 "Press the reset button to start again.", reset));
       }
+    } else if (player1.length + player2.length == buttonList.length) {
+      showDialog(
+            context: context,
+            builder: (_) => ShowResult("It's a draw!",
+                "Press the reset button to start again.", reset));
     }
     return winner;
   }
