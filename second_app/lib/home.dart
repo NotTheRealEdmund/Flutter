@@ -63,24 +63,24 @@ class _HomeState extends State<Home> {
 
   int checkWinner() {
     var winner = -1;
-    if ((player1.contains(1) && player1.contains(2) && player1.contains(3)) ||
-        (player1.contains(4) && player1.contains(5) && player1.contains(6)) ||
-        (player1.contains(7) && player1.contains(8) && player1.contains(9)) ||
+    if ((player1.contains(0) && player1.contains(1) && player1.contains(2)) ||
+        (player1.contains(3) && player1.contains(4) && player1.contains(5)) ||
+        (player1.contains(6) && player1.contains(7) && player1.contains(8)) ||
+        (player1.contains(0) && player1.contains(3) && player1.contains(6)) ||
         (player1.contains(1) && player1.contains(4) && player1.contains(7)) ||
         (player1.contains(2) && player1.contains(5) && player1.contains(8)) ||
-        (player1.contains(3) && player1.contains(6) && player1.contains(9)) ||
-        (player1.contains(1) && player1.contains(5) && player1.contains(9)) ||
-        (player1.contains(3) && player1.contains(5) && player1.contains(7))) {
+        (player1.contains(0) && player1.contains(4) && player1.contains(8)) ||
+        (player1.contains(2) && player1.contains(4) && player1.contains(6))) {
       winner = 1;
     }
-    if ((player2.contains(1) && player2.contains(2) && player2.contains(3)) ||
-        (player2.contains(4) && player2.contains(5) && player2.contains(6)) ||
-        (player2.contains(7) && player2.contains(8) && player2.contains(9)) ||
+    if ((player2.contains(0) && player2.contains(1) && player2.contains(2)) ||
+        (player2.contains(3) && player2.contains(4) && player2.contains(5)) ||
+        (player2.contains(6) && player2.contains(7) && player2.contains(8)) ||
+        (player2.contains(0) && player2.contains(3) && player2.contains(6)) ||
         (player2.contains(1) && player2.contains(4) && player2.contains(7)) ||
         (player2.contains(2) && player2.contains(5) && player2.contains(8)) ||
-        (player2.contains(3) && player2.contains(6) && player2.contains(9)) ||
-        (player2.contains(1) && player2.contains(5) && player2.contains(9)) ||
-        (player2.contains(3) && player2.contains(5) && player2.contains(7))) {
+        (player2.contains(0) && player2.contains(4) && player2.contains(8)) ||
+        (player2.contains(2) && player2.contains(4) && player2.contains(6))) {
       winner = 2;
     }
     if (winner != -1) {
