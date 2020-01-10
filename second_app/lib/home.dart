@@ -11,6 +11,9 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   List<Button> buttonList;
+  var player1;
+  var player2;
+  var activePlayer;
 
   @override
   void initState() {
@@ -19,6 +22,10 @@ class _HomeState extends State<Home> {
   }
 
   List<Button> initialise() {
+    player1 = new List();
+    player2 = new List();
+    activePlayer = 1;
+
     var buttons = <Button>[
       Button(id: 0),
       Button(id: 1),
