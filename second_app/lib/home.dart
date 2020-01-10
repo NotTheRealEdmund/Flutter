@@ -41,7 +41,20 @@ class _HomeState extends State<Home> {
   }
 
   void makeMove(Button button) {
-    // Do something
+    setState(() {
+      if (activePlayer == 1) {
+        button.text = 'X';
+        button.bg = Colors.blue;
+        activePlayer = 2;
+        player1.add(button.id);
+      } else {
+        button.text = 'O';
+        button.bg = Colors.grey;
+        activePlayer = 1;
+        player2.add(button.id);
+      }
+      button.marked = true;
+    });
   }
 
   @override
