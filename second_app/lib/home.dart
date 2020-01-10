@@ -33,6 +33,10 @@ class _HomeState extends State<Home> {
     return buttons;
   }
 
+  void makeMove(Button button) {
+    // Do something
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,7 +56,11 @@ class _HomeState extends State<Home> {
             height: 100.0,
             child: new RaisedButton(
               padding: const EdgeInsets.all(8.0),
-              onPressed: () {},
+              onPressed: () {
+                if (buttonList[i].marked == false) {
+                  makeMove(buttonList[i]);
+                }
+              },
               child: new Text(
                 buttonList[i].text,
                 style: new TextStyle(color: Colors.white, fontSize: 20.0),
