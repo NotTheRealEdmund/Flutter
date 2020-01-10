@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 
-class ScrollingList extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    return _ScrollingListState();
-  }
-}
+class ScrollingList extends StatelessWidget {
+  final List<String> entries = <String>['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
+  final Color mycolor;
 
-class _ScrollingListState extends State<ScrollingList> {
+  ScrollingList(this.mycolor);
+
   @override
   Widget build(BuildContext context) {
-    final List<String> entries = <String>['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
-
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
@@ -21,7 +17,7 @@ class _ScrollingListState extends State<ScrollingList> {
           itemBuilder: (BuildContext context, int index) {
             return Container(
               height: 100,
-              color: Colors.lightBlue,
+              color: mycolor,
               child: Center(child: Text('Entry ${entries[index]}')),
             );
           },

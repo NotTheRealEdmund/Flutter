@@ -4,49 +4,60 @@ import './scrolling_list.dart';
 
 void main(List<String> args) => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _MyAppState();
+  }
+}
+
+class _MyAppState extends State<MyApp> {
+  Color _mycolor = Colors.blue[100];
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
           appBar: AppBar(title: Text('Scrolling List')),
-          body: ScrollingList(),
           drawer: Drawer(
-            // Add a ListView to the drawer. This ensures the user can scroll
-            // through the options in the drawer if there isn't enough vertical
-            // space to fit everything.
             child: ListView(
-              // Important: Remove any padding from the ListView.
               padding: EdgeInsets.zero,
               children: <Widget>[
                 DrawerHeader(
-                  child: Text('Drawer Header'),
+                  child: Text('Change list color'),
                   decoration: BoxDecoration(
                     color: Colors.blue,
                   ),
                 ),
                 ListTile(
-                  title: Text('Item 1'),
+                  title: Text('Light Blue'),
                   onTap: () {
-                    // Update the state of the app
-                    // ...
-                    // Then close the drawer
-                    Navigator.pop(context);
+                    setState(() {
+                      _mycolor = Colors.blue[100];
+                    });
                   },
                 ),
                 ListTile(
-                  title: Text('Item 2'),
+                  title: Text('Light Green'),
                   onTap: () {
-                    // Update the state of the app
-                    // ...
-                    // Then close the drawer
-                    Navigator.pop(context);
+                    setState(() {
+                      _mycolor = Colors.green[100];
+                    });
+                  },
+                ),
+                ListTile(
+                  title: Text('Pink'),
+                  onTap: () {
+                    setState(() {
+                      _mycolor = Colors.pink[100];
+                    });
                   },
                 ),
               ],
             ),
           ),
+          body: ScrollingList(_mycolor),
         ));
   }
 }
