@@ -6,5 +6,9 @@ class Button {
   Color bg;
   bool marked;
 
-  Button({this.id, this.text = '', this.bg = Colors.deepOrange, this.marked = true});
+  Button(
+      {this.id,
+      this.text = '',
+      this.bg = Colors.deepOrange,
+      this.marked = true});
 }
