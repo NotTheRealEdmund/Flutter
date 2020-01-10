@@ -10,5 +10,5 @@ class Button {
       {this.id,
       this.text = '',
       this.bg = Colors.deepOrange,
-      this.marked = true});
+      this.marked = false});
 }
