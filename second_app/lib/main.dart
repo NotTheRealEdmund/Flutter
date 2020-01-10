@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import './home.dart';
+
 void main(List<String> args) => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -7,15 +9,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.deepPurple
-      ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Tic-Tac-Toe'),
-        ),
-        body: new Container()
-      ),
+      theme: ThemeData(primarySwatch: Colors.deepPurple),
+      home: Home(),
     );
   }
 }
