@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './button.dart';
+import './show_result.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -60,42 +61,50 @@ class _HomeState extends State<Home> {
     });
   }
 
-int checkWinner() {
+  int checkWinner() {
     var winner = -1;
-    if (
-        (player1.contains(1) && player1.contains(2) && player1.contains(3)) || 
-        (player1.contains(4) && player1.contains(5) && player1.contains(6)) || 
+    if ((player1.contains(1) && player1.contains(2) && player1.contains(3)) ||
+        (player1.contains(4) && player1.contains(5) && player1.contains(6)) ||
         (player1.contains(7) && player1.contains(8) && player1.contains(9)) ||
         (player1.contains(1) && player1.contains(4) && player1.contains(7)) ||
         (player1.contains(2) && player1.contains(5) && player1.contains(8)) ||
         (player1.contains(3) && player1.contains(6) && player1.contains(9)) ||
         (player1.contains(1) && player1.contains(5) && player1.contains(9)) ||
-        (player1.contains(3) && player1.contains(5) && player1.contains(7))
-       ) {
+        (player1.contains(3) && player1.contains(5) && player1.contains(7))) {
       winner = 1;
-    } 
-    if (
-        (player2.contains(1) && player2.contains(2) && player2.contains(3)) || 
-        (player2.contains(4) && player2.contains(5) && player2.contains(6)) || 
+    }
+    if ((player2.contains(1) && player2.contains(2) && player2.contains(3)) ||
+        (player2.contains(4) && player2.contains(5) && player2.contains(6)) ||
         (player2.contains(7) && player2.contains(8) && player2.contains(9)) ||
         (player2.contains(1) && player2.contains(4) && player2.contains(7)) ||
         (player2.contains(2) && player2.contains(5) && player2.contains(8)) ||
         (player2.contains(3) && player2.contains(6) && player2.contains(9)) ||
         (player2.contains(1) && player2.contains(5) && player2.contains(9)) ||
-        (player2.contains(3) && player2.contains(5) && player2.contains(7))
-       ) {
+        (player2.contains(3) && player2.contains(5) && player2.contains(7))) {
       winner = 2;
-    } 
+    }
     if (winner != -1) {
       if (winner == 1) {
-        // Player 1 wins, game ends
+        showDialog(
+            context: context,
+            builder: (_) => ShowResult("Player 1 Won!",
+                "Press the reset button to start again.", reset));
       } else {
-        // Player 2 wins, game ends
+        showDialog(
+            context: context,
+            builder: (_) => ShowResult("Player 2 Won!",
+                "Press the reset button to start again.", reset));
       }
     }
     return winner;
   }
 
+  void reset() {
+    if (Navigator.canPop(context)) Navigator.pop(context);
+    setState(() {
+      buttonList = initialise();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
