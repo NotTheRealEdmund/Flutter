@@ -137,7 +137,7 @@ class _HomeState extends State<Home> {
               },
               child: new Text(
                 buttonList[i].text,
-                style: new TextStyle(color: Colors.white, fontSize: 20.0),
+                style: new TextStyle(color: Colors.white, fontSize: 60.0, fontFamily: 'Cursive'),
               ),
               color: buttonList[i].bg,
               disabledColor: buttonList[i].bg,
