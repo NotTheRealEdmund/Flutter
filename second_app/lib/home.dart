@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import './button.dart';
 import './show_result.dart';
@@ -137,7 +138,7 @@ class _HomeState extends State<Home> {
               },
               child: new Text(
                 buttonList[i].text,
-                style: new TextStyle(color: Colors.white, fontSize: 60.0, fontFamily: 'Cursive'),
+                style: GoogleFonts.sniglet(color: Colors.white, fontSize: 80.0),
               ),
               color: buttonList[i].bg,
               disabledColor: buttonList[i].bg,
