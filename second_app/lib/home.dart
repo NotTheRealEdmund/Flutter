@@ -24,8 +24,8 @@ class _HomeState extends State<Home> {
   }
 
   List<Button> initialise() {
-    player1 = new List();
-    player2 = new List();
+    player1 = List();
+    player2 = List();
     activePlayer = 1;
 
     var buttons = <Button>[
@@ -98,9 +98,9 @@ class _HomeState extends State<Home> {
       }
     } else if (player1.length + player2.length == buttonList.length) {
       showDialog(
-            context: context,
-            builder: (_) => ShowResult("It's a draw!",
-                "Press the reset button to start again.", reset));
+          context: context,
+          builder: (_) => ShowResult(
+              "It's a draw!", "Press the reset button to start again.", reset));
     }
     return winner;
   }
@@ -118,32 +118,40 @@ class _HomeState extends State<Home> {
         appBar: AppBar(
           title: Text('Tic-Tac-Toe'),
         ),
-        body: new GridView.builder(
-          padding: const EdgeInsets.all(10.0),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3,
-              childAspectRatio: 1.0,
-              crossAxisSpacing: 9.0,
-              mainAxisSpacing: 9.0),
-          itemCount: buttonList.length,
-          itemBuilder: (context, i) => new SizedBox(
-            width: 100.0,
-            height: 100.0,
-            child: new RaisedButton(
-              padding: const EdgeInsets.all(8.0),
-              onPressed: () {
-                if (buttonList[i].marked == false) {
-                  makeMove(buttonList[i]);
-                }
-              },
-              child: new Text(
-                buttonList[i].text,
-                style: GoogleFonts.sniglet(color: Colors.white, fontSize: 80.0),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Expanded(
+                child: GridView.builder(
+              padding: const EdgeInsets.all(10.0),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                  childAspectRatio: 1.0,
+                  crossAxisSpacing: 9.0,
+                  mainAxisSpacing: 9.0),
+              itemCount: buttonList.length,
+              itemBuilder: (context, i) => SizedBox(
+                width: 100.0,
+                height: 100.0,
+                child: RaisedButton(
+                  padding: const EdgeInsets.all(8.0),
+                  onPressed: () {
+                    if (buttonList[i].marked == false) {
+                      makeMove(buttonList[i]);
+                    }
+                  },
+                  child: Text(
+                    buttonList[i].text,
+                    style: GoogleFonts.sniglet(
+                        color: Colors.white, fontSize: 80.0),
+                  ),
+                  color: buttonList[i].bg,
+                  disabledColor: buttonList[i].bg,
+                ),
               ),
-              color: buttonList[i].bg,
-              disabledColor: buttonList[i].bg,
-            ),
-          ),
+            )),
+          ],
         ));
   }
 }

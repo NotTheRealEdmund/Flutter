@@ -10,7 +10,7 @@ class ShowResult extends StatelessWidget {
       [this.actionText = "Reset"]);
   @override
   Widget build(BuildContext context) {
-    return new AlertDialog(
+    return AlertDialog(
       title: Text(result),
       content: Text(instruction),
       actions: <Widget>[
