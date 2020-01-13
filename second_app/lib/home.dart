@@ -152,15 +152,16 @@ class _HomeState extends State<Home> {
               ),
             )),
             RaisedButton(
-              child: Text('Reset',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20.0),
-                  ),
-                  color: Colors.red,
-                  padding: const EdgeInsets.all(20.0),
-                  onPressed: reset,
-            )
+                child: Text(
+                  'Reset',
+                  style: TextStyle(color: Colors.white, fontSize: 20.0),
+                ),
+                color: Colors.red,
+                padding: const EdgeInsets.all(20.0),
+                onPressed: reset,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(40.0),
+                ))
           ],
         ));
   }
