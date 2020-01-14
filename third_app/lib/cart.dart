@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
-class Home extends StatefulWidget {
+class Cart extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _HomeState();
+    return _CartState();
   }
 }
 
-class _HomeState extends State<Home> {
+class _CartState extends State<Cart> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Home Page'),
+          title: Text('My Cart'),
         ),
         drawer: Drawer(
           child: ListView(
@@ -45,6 +45,6 @@ class _HomeState extends State<Home> {
             ],
           ),
         ),
-        body: Text('This is the home page'));
+        body: Text('This is the My Cart page'));
   }
 }
