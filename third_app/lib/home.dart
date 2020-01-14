@@ -8,6 +8,9 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  List<String> productList = [
+    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R'
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +36,7 @@ class _HomeState extends State<Home> {
                   child: RaisedButton(
                     padding: const EdgeInsets.all(8.0),
                     onPressed: () {},
-                    child: Text('This is a product.'),
+                    child: Text(productList[i]),
                   ),
                 ),
               ),
