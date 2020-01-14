@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import './item.dart';
+
 class Product extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -8,18 +10,13 @@ class Product extends StatefulWidget {
 }
 
 class _ProductState extends State<Product> {
-  List<String> productList = [
-    'Chino figurine',
-    'Cocoa figurine',
-    'Rize figurine',
-    'Syaro figurine'
+  List<Item> itemList = <Item>[
+    Item(name: 'Chino figurine', price: '68.00 SGD', image: 'figurine_chino.jpg'),
+    Item(name: 'Cocoa figurine', price: '69.00 SGD', image: 'figurine_cocoa.jpg'),
+    Item(name: 'Rize figurine', price: '70.00 SGD', image: 'figurine_rize.jpg'),
+    Item(name: 'Syaro figurine', price: '71.00 SGD', image: 'figurine_syaro.jpg')
   ];
-  List<String> productPrice = [
-    '68.00 SGD',
-    '69.00 SGD',
-    '70.00 SGD',
-    '71.00 SGD'
-  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,7 +69,7 @@ class _ProductState extends State<Product> {
                     childAspectRatio: 1.0,
                     crossAxisSpacing: 9.0,
                     mainAxisSpacing: 9.0),
-                itemCount: 4,
+                itemCount: itemList.length,
                 itemBuilder: (context, i) => SizedBox(
                     width: 100.0,
                     height: 100.0,
