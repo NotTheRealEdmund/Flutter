@@ -67,11 +67,14 @@ class _ProductState extends State<Product> {
                 itemBuilder: (context, i) => SizedBox(
                   width: 100.0,
                   height: 100.0,
-                  child: RaisedButton(
-                    padding: const EdgeInsets.all(8.0),
-                    onPressed: () {},
-                    child: Text(productList[i]),
-                  ),
+                  child: Card(
+                      child: Column(children: <Widget>[
+                    RaisedButton(
+                      padding: const EdgeInsets.all(8.0),
+                      onPressed: () {},
+                      child: Text(productList[i]),
+                    ),
+                  ])),
                 ),
               ),
             ),
