@@ -30,19 +30,19 @@ class _ProductState extends State<Product> {
                 ListTile(
                   title: Text('Home'),
                   onTap: () {
-                    Navigator.pushNamed(context, '/home');
+                    Navigator.of(context).pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);
                   },
                 ),
                 ListTile(
                   title: Text('Products'),
                   onTap: () {
-                    Navigator.pushNamed(context, '/product');
+                    Navigator.of(context).pushNamedAndRemoveUntil('/product', (Route<dynamic> route) => false);
                   },
                 ),
                 ListTile(
                   title: Text('My Cart'),
                   onTap: () {
-                    Navigator.pushNamed(context, '/cart');
+                    Navigator.of(context).pushNamedAndRemoveUntil('/cart', (Route<dynamic> route) => false);
                   },
                 ),
               ],

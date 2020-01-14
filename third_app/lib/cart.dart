@@ -25,23 +25,23 @@ class _CartState extends State<Cart> {
                 ),
               ),
               ListTile(
-                title: Text('Home'),
-                onTap: () {
-                  Navigator.pushNamed(context, '/home');
-                },
-              ),
-              ListTile(
-                title: Text('Products'),
-                onTap: () {
-                  Navigator.pushNamed(context, '/product');
-                },
-              ),
-              ListTile(
-                title: Text('My Cart'),
-                onTap: () {
-                  Navigator.pushNamed(context, '/cart');
-                },
-              ),
+                  title: Text('Home'),
+                  onTap: () {
+                    Navigator.of(context).pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);
+                  },
+                ),
+                ListTile(
+                  title: Text('Products'),
+                  onTap: () {
+                    Navigator.of(context).pushNamedAndRemoveUntil('/product', (Route<dynamic> route) => false);
+                  },
+                ),
+                ListTile(
+                  title: Text('My Cart'),
+                  onTap: () {
+                    Navigator.of(context).pushNamedAndRemoveUntil('/cart', (Route<dynamic> route) => false);
+                  },
+                ),
             ],
           ),
         ),
