@@ -60,7 +60,7 @@ class _ProductState extends State<Product> {
                     childAspectRatio: 1.0,
                     crossAxisSpacing: 9.0,
                     mainAxisSpacing: 9.0),
-                itemCount: 18,
+                itemCount: 4,
                 itemBuilder: (context, i) => SizedBox(
                   width: 100.0,
                   height: 100.0,
