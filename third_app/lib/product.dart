@@ -71,17 +71,13 @@ class _ProductState extends State<Product> {
                     mainAxisSpacing: 9.0),
                 itemCount: itemList.length,
                 itemBuilder: (context, i) => SizedBox(
-                    width: 100.0,
-                    height: 100.0,
-                    child: Card(
-                        child: Column(children: [
-                      RaisedButton(
-                        padding: const EdgeInsets.all(8.0),
-                        onPressed: () {},
-                        child: Text('image here'),
-                      ),
-                      Text(productList[i] + ': ' + productPrice[i]),
-                    ]))),
+                    child: GestureDetector(
+                  onTap: () {},
+                  child: Image.asset(
+                    itemList[i].image,
+                    fit: BoxFit.cover,
+                  ),
+                )),
               ),
             ),
             RaisedButton(
