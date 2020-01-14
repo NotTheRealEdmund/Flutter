@@ -17,6 +17,31 @@ class _HomeState extends State<Home> {
         appBar: AppBar(
           title: Text('Products Page'),
         ),
+        drawer: Drawer(
+          child: ListView(
+              padding: EdgeInsets.zero,
+              children: <Widget>[
+                DrawerHeader(
+                  child: Text('Account info'),
+                  decoration: BoxDecoration(
+                    color: Colors.orange,
+                  ),
+                ),
+                ListTile(
+                  title: Text('Home'),
+                  onTap: () {},
+                ),
+                ListTile(
+                  title: Text('Products'),
+                  onTap: () {},
+                ),
+                ListTile(
+                  title: Text('My Cart'),
+                  onTap: () {},
+                ),
+              ],
+            ),
+        ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
