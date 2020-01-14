@@ -9,10 +9,16 @@ class Product extends StatefulWidget {
 
 class _ProductState extends State<Product> {
   List<String> productList = [
-    'Chino figurine', 'Cocoa figurine', 'Rize figurine', 'Syaro figurine' 
+    'Chino figurine',
+    'Cocoa figurine',
+    'Rize figurine',
+    'Syaro figurine'
   ];
   List<String> productPrice = [
-    '68.00', '69.00', '70.00', '71.00' 
+    '68.00 SGD',
+    '69.00 SGD',
+    '70.00 SGD',
+    '71.00 SGD'
   ];
   @override
   Widget build(BuildContext context) {
@@ -22,34 +28,37 @@ class _ProductState extends State<Product> {
         ),
         drawer: Drawer(
           child: ListView(
-              padding: EdgeInsets.zero,
-              children: <Widget>[
-                DrawerHeader(
-                  child: Text('Account info'),
-                  decoration: BoxDecoration(
-                    color: Colors.orange,
-                  ),
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              DrawerHeader(
+                child: Text('Account info'),
+                decoration: BoxDecoration(
+                  color: Colors.orange,
                 ),
-                ListTile(
-                  title: Text('Home'),
-                  onTap: () {
-                    Navigator.of(context).pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);
-                  },
-                ),
-                ListTile(
-                  title: Text('Products'),
-                  onTap: () {
-                    Navigator.of(context).pushNamedAndRemoveUntil('/product', (Route<dynamic> route) => false);
-                  },
-                ),
-                ListTile(
-                  title: Text('My Cart'),
-                  onTap: () {
-                    Navigator.of(context).pushNamedAndRemoveUntil('/cart', (Route<dynamic> route) => false);
-                  },
-                ),
-              ],
-            ),
+              ),
+              ListTile(
+                title: Text('Home'),
+                onTap: () {
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                      '/home', (Route<dynamic> route) => false);
+                },
+              ),
+              ListTile(
+                title: Text('Products'),
+                onTap: () {
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                      '/product', (Route<dynamic> route) => false);
+                },
+              ),
+              ListTile(
+                title: Text('My Cart'),
+                onTap: () {
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                      '/cart', (Route<dynamic> route) => false);
+                },
+              ),
+            ],
+          ),
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -65,17 +74,17 @@ class _ProductState extends State<Product> {
                     mainAxisSpacing: 9.0),
                 itemCount: 4,
                 itemBuilder: (context, i) => SizedBox(
-                  width: 100.0,
-                  height: 100.0,
-                  child: Card(
-                      child: Column(children: <Widget>[
-                    RaisedButton(
-                      padding: const EdgeInsets.all(8.0),
-                      onPressed: () {},
-                      child: Text(productList[i]),
-                    ),
-                  ])),
-                ),
+                    width: 100.0,
+                    height: 100.0,
+                    child: Card(
+                        child: Column(children: [
+                      RaisedButton(
+                        padding: const EdgeInsets.all(8.0),
+                        onPressed: () {},
+                        child: Text('image here'),
+                      ),
+                      Text(productList[i] + ': ' + productPrice[i]),
+                    ]))),
               ),
             ),
             RaisedButton(
