@@ -17,6 +17,8 @@ class _ProductState extends State<Product> {
     Item(name: 'Syaro figurine', price: '71.00 SGD', image: 'figurine_syaro.jpg')
   ];
 
+  List<Item> selected = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,6 +64,7 @@ class _ProductState extends State<Product> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Expanded(
+              flex: 2,
               child: GridView.builder(
                 padding: const EdgeInsets.all(10.0),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -72,13 +75,27 @@ class _ProductState extends State<Product> {
                 itemCount: itemList.length,
                 itemBuilder: (context, i) => SizedBox(
                     child: GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    setState(() {
+                      selected.add(itemList[i]);
+                    });
+                  },
                   child: Image.asset(
                     itemList[i].image,
                     fit: BoxFit.cover,
                   ),
                 )),
               ),
+            ),
+            Center(child: Text('Selected products:\n', style: TextStyle(color: Colors.blue))),
+            Expanded(
+              child: ListView.builder(
+                itemCount: selected.length,
+                itemBuilder: (context, i){
+                return Container(
+                  child: Text(selected[i].name + ': ' + selected[i].price + '\n'),
+                );
+                }),
             ),
             RaisedButton(
                 child: Text(
