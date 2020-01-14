@@ -9,7 +9,10 @@ class Product extends StatefulWidget {
 
 class _ProductState extends State<Product> {
   List<String> productList = [
-    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R'
+    'Chino figurine', 'Cocoa figurine', 'Rize figurine', 'Syaro figurine' 
+  ];
+  List<String> productPrice = [
+    '68.00', '69.00', '70.00', '71.00' 
   ];
   @override
   Widget build(BuildContext context) {
