@@ -87,24 +87,44 @@ class _ProductState extends State<Product> {
                 )),
               ),
             ),
-            Center(child: Text('Selected products:\n', style: TextStyle(color: Colors.blue))),
+            Center(
+                child: Text('Selected products:\n',
+                    style: TextStyle(color: Colors.blue))),
             Expanded(
               child: ListView.builder(
-                itemCount: selected.length,
-                itemBuilder: (context, i){
-                return Container(
-                  child: Text(selected[i].name + ': ' + selected[i].price + '\n'),
-                );
-                }),
+                  itemCount: selected.length,
+                  itemBuilder: (context, i) {
+                    return Container(
+                      child: Text(
+                          selected[i].name + ': ' + selected[i].price + '\n'),
+                    );
+                  }),
             ),
+            Container(
+                margin: const EdgeInsets.only(bottom: 10.0),
+                child: RaisedButton(
+                    child: Text(
+                      'Add to cart',
+                      style: TextStyle(color: Colors.white, fontSize: 20.0),
+                    ),
+                    color: Colors.red,
+                    padding: const EdgeInsets.all(20.0),
+                    onPressed: () {},
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(40.0),
+                    ))),
             RaisedButton(
                 child: Text(
-                  'Add to cart',
+                  'Clear selected items',
                   style: TextStyle(color: Colors.white, fontSize: 20.0),
                 ),
                 color: Colors.red,
                 padding: const EdgeInsets.all(20.0),
-                onPressed: () {},
+                onPressed: () {
+                  setState(() {
+                    selected.clear();
+                  });
+                },
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(40.0),
                 ))
