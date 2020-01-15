@@ -10,7 +10,12 @@ class Cart extends StatefulWidget {
 }
 
 class _CartState extends State<Cart> {
-  List<Item> orderList = [];
+  List<Item> orderList = <Item>[
+    Item(name: 'Chino figurine', price: '68.00', image: 'figurine_chino.jpg'),
+    Item(name: 'Cocoa figurine', price: '69.00', image: 'figurine_cocoa.jpg'),
+    Item(name: 'Rize figurine', price: '70.00', image: 'figurine_rize.jpg'),
+    Item(name: 'Syaro figurine', price: '71.00', image: 'figurine_syaro.jpg')
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +65,27 @@ class _CartState extends State<Cart> {
                   style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
                 ),
-            )
+            ),
+            Expanded(
+              child: ListView.separated(
+                padding: const EdgeInsets.all(10.0),
+                itemCount: orderList.length,
+                itemBuilder: (BuildContext context, int i) {
+                  return Column(
+                    children: <Widget>[
+                      Image.asset(
+                          orderList[i].image,
+                          height: 100,
+                          width: 100,
+                          fit: BoxFit.cover,
+                        ),
+                      Text(orderList[i].name + ': \$' + orderList[i].price)
+                    ],
+                  );
+                },
+                separatorBuilder: (BuildContext context, int i) => const Divider(),
+              )
+            ),
           ],
         )
     );
