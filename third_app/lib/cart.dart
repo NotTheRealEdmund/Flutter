@@ -63,7 +63,7 @@ class _CartState extends State<Cart> {
                 child: Text(
                   'My Order (' + orderList.length.toString() + ')',
                   style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-                  textAlign: TextAlign.center,
+                  textAlign: TextAlign.left,
                 ),
             ),
             Expanded(
