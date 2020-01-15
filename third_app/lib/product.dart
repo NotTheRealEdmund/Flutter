@@ -17,8 +17,6 @@ class _ProductState extends State<Product> {
     Item(name: 'Syaro figurine', price: '71.00 SGD', image: 'figurine_syaro.jpg')
   ];
 
-  List<Item> selected = [];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,7 +62,6 @@ class _ProductState extends State<Product> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Expanded(
-              flex: 2,
               child: GridView.builder(
                 padding: const EdgeInsets.all(10.0),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -77,7 +74,7 @@ class _ProductState extends State<Product> {
                     child: GestureDetector(
                   onTap: () {
                     setState(() {
-                      selected.add(itemList[i]);
+                      // Confirm to add item to cart
                     });
                   },
                   child: Image.asset(
@@ -87,47 +84,6 @@ class _ProductState extends State<Product> {
                 )),
               ),
             ),
-            Center(
-                child: Text('Selected products:\n',
-                    style: TextStyle(color: Colors.blue))),
-            Expanded(
-              child: ListView.builder(
-                  itemCount: selected.length,
-                  itemBuilder: (context, i) {
-                    return Container(
-                      child: Text(
-                          selected[i].name + ': ' + selected[i].price + '\n'),
-                    );
-                  }),
-            ),
-            Container(
-                margin: const EdgeInsets.only(bottom: 10.0),
-                child: RaisedButton(
-                    child: Text(
-                      'Add to cart',
-                      style: TextStyle(color: Colors.white, fontSize: 20.0),
-                    ),
-                    color: Colors.red,
-                    padding: const EdgeInsets.all(20.0),
-                    onPressed: () {},
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(40.0),
-                    ))),
-            RaisedButton(
-                child: Text(
-                  'Clear selected items',
-                  style: TextStyle(color: Colors.white, fontSize: 20.0),
-                ),
-                color: Colors.red,
-                padding: const EdgeInsets.all(20.0),
-                onPressed: () {
-                  setState(() {
-                    selected.clear();
-                  });
-                },
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(40.0),
-                ))
           ],
         ));
   }
