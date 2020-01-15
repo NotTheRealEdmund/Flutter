@@ -17,6 +17,22 @@ class _CartState extends State<Cart> {
     Item(name: 'Syaro figurine', price: '71.00', image: 'figurine_syaro.jpg')
   ];
 
+  double sum = 0.0;
+
+  double calculateSum() {
+    double tempSum = 0.0;
+    for (Item x in orderList) {
+      tempSum += double.parse(x.price);
+    }
+    return tempSum;
+  }
+
+  @override
+  void initState() {
+    sum = calculateSum();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -84,6 +100,14 @@ class _CartState extends State<Cart> {
                   );
                 },
                 separatorBuilder: (BuildContext context, int i) => const Divider(),
+              )
+            ),
+            Padding(
+              padding: EdgeInsets.all(10.0),
+              child: Text(
+                'Total: \$' + sum.toStringAsFixed(2),
+                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                textAlign: TextAlign.left,
               )
             ),
           ],
