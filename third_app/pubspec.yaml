@@ -46,6 +46,18 @@ flutter:
     - figurine_cocoa.jpg
     - figurine_rize.jpg
     - figurine_syaro.jpg
+    - anime_keychain.jpg
+    - ballpoint_pen.jpg
+    - bottle_cap.jpg
+    - gacha_amulet.jpg
+    - nokia_phone.jpg
+    - puzzle_ring.jpg
+    - ring_black.jpg
+    - ring_silver.jpg
+    - sharpie_marker.jpg
+    - tarot_card.jpg
+    - tennis_ball.jpg
+    - wire.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
