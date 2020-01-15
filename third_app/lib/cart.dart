@@ -110,6 +110,19 @@ class _CartState extends State<Cart> {
                 textAlign: TextAlign.left,
               )
             ),
+            Padding(
+              padding: EdgeInsets.all(10.0),
+              child: RaisedButton(
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                onPressed: () {},
+                textColor: Colors.white,
+                color: Colors.orange,
+                padding: const EdgeInsets.all(10.0),
+                child: Text(
+                  "Proceed to payment",
+                ),
+              )
+            ),
           ],
         )
     );
