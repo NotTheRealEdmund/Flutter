@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.red, accentColor: Colors.red),
-      initialRoute: '/product',
+      initialRoute: '/home',
       routes: <String, WidgetBuilder>{
         '/home': (BuildContext context) => Home(),
         '/product': (BuildContext context) => Product(),
