@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './item.dart';
+import './custom_dialog.dart';
 
 class Product extends StatefulWidget {
   @override
@@ -11,11 +12,15 @@ class Product extends StatefulWidget {
 
 class _ProductState extends State<Product> {
   List<Item> itemList = <Item>[
-    Item(name: 'Chino figurine', price: '68.00 SGD', image: 'figurine_chino.jpg'),
-    Item(name: 'Cocoa figurine', price: '69.00 SGD', image: 'figurine_cocoa.jpg'),
-    Item(name: 'Rize figurine', price: '70.00 SGD', image: 'figurine_rize.jpg'),
-    Item(name: 'Syaro figurine', price: '71.00 SGD', image: 'figurine_syaro.jpg')
+    Item(name: 'Chino figurine', price: '68.00', image: 'figurine_chino.jpg'),
+    Item(name: 'Cocoa figurine', price: '69.00', image: 'figurine_cocoa.jpg'),
+    Item(name: 'Rize figurine', price: '70.00', image: 'figurine_rize.jpg'),
+    Item(name: 'Syaro figurine', price: '71.00', image: 'figurine_syaro.jpg')
   ];
+
+  void addToCart() {
+    // Do nothing yet
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +79,16 @@ class _ProductState extends State<Product> {
                     child: GestureDetector(
                   onTap: () {
                     setState(() {
-                      // Confirm to add item to cart
+                      showDialog(
+                          context: context,
+                          builder: (_) => CustomDialog(
+                              'Are you sure you wish to add this product to cart?',
+                              'This product is ' +
+                                  itemList[i].name +
+                                  ' which costs \$' +
+                                  itemList[i].price,
+                              addToCart,
+                              'Add to cart'));
                     });
                   },
                   child: Image.asset(
