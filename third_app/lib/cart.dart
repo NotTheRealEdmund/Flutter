@@ -105,8 +105,8 @@ class _CartState extends State<Cart> {
                         borderRadius: new BorderRadius.circular(8.0),
                         child: Image.asset(
                           orderList[i].image,
-                          height: 100,
-                          width: 100,
+                          height: 120,
+                          width: 120,
                           fit: BoxFit.cover,
                         ),
                       ),
