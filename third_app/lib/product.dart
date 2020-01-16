@@ -78,6 +78,14 @@ class _ProductState extends State<Product> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
+            Padding(
+              padding: EdgeInsets.all(10.0),
+                child: Text(
+                  'Featured products',
+                  style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.left,
+                ),
+            ),
             Expanded(
               child: GridView.builder(
                 padding: const EdgeInsets.all(10.0),
