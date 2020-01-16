@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './item.dart';
+import './product_card.dart';
 
 class Cart extends StatefulWidget {
   @override
@@ -82,43 +83,28 @@ class _CartState extends State<Cart> {
             ],
           ),
         ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+        body: ListView(
           children: <Widget>[
-            Padding(
-              padding: EdgeInsets.all(10.0),
-                child: Text(
-                  'My Order (' + orderList.length.toString() + ')',
-                  style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-                  textAlign: TextAlign.left,
+            Row(
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Container(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      'My Order (' + orderList.length.toString() + ')',
+                      style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.left,
+                    ),
+                  ),
                 ),
+              ],
             ),
-            Expanded(
-              child: ListView.separated(
-                padding: const EdgeInsets.all(10.0),
-                itemCount: orderList.length,
-                itemBuilder: (BuildContext context, int i) {
-                  return Column(
-                    children: <Widget>[
-                      ClipRRect(
-                        borderRadius: new BorderRadius.circular(8.0),
-                        child: Image.asset(
-                          orderList[i].image,
-                          height: 120,
-                          width: 120,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      Text(orderList[i].name + ': \$' + orderList[i].price)
-                    ],
-                  );
-                },
-                separatorBuilder: (BuildContext context, int i) => const Divider(),
-              )
+            Column(
+              children: orderList.map((element) => ProductCard(item: element)).toList()
             ),
             Padding(
-              padding: EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(10.0),
               child: Text(
                 'Total: \$' + sum.toStringAsFixed(2),
                 style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
@@ -126,7 +112,7 @@ class _CartState extends State<Cart> {
               )
             ),
             Padding(
-              padding: EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(10.0),
               child: RaisedButton(
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
                 onPressed: () {},
@@ -138,7 +124,7 @@ class _CartState extends State<Cart> {
                 ),
               )
             ),
-          ],
+          ]
         )
     );
   }
