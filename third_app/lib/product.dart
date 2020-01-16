@@ -103,10 +103,13 @@ class _ProductState extends State<Product> {
                               'Add to cart'));
                     });
                   },
-                  child: Image.asset(
-                    itemList[i].image,
-                    fit: BoxFit.cover,
-                  ),
+                  child: ClipRRect(
+                    borderRadius: new BorderRadius.circular(8.0),
+                    child: Image.asset(
+                      itemList[i].image,
+                      fit: BoxFit.cover,
+                    ),
+                  )
                 )),
               ),
             ),

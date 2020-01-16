@@ -101,12 +101,15 @@ class _CartState extends State<Cart> {
                 itemBuilder: (BuildContext context, int i) {
                   return Column(
                     children: <Widget>[
-                      Image.asset(
+                      ClipRRect(
+                        borderRadius: new BorderRadius.circular(8.0),
+                        child: Image.asset(
                           orderList[i].image,
                           height: 100,
                           width: 100,
                           fit: BoxFit.cover,
                         ),
+                      ),
                       Text(orderList[i].name + ': \$' + orderList[i].price)
                     ],
                   );
