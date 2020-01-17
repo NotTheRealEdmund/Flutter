@@ -63,69 +63,72 @@ class _CartState extends State<Cart> {
                 ),
               ),
               ListTile(
-                  title: Text('Home'),
-                  onTap: () {
-                    Navigator.of(context).pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);
-                  },
-                ),
-                ListTile(
-                  title: Text('Products'),
-                  onTap: () {
-                    Navigator.of(context).pushNamedAndRemoveUntil('/product', (Route<dynamic> route) => false);
-                  },
-                ),
-                ListTile(
-                  title: Text('My Cart'),
-                  onTap: () {
-                    Navigator.of(context).pushNamedAndRemoveUntil('/cart', (Route<dynamic> route) => false);
-                  },
-                ),
+                title: Text('Home'),
+                onTap: () {
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                      '/home', (Route<dynamic> route) => false);
+                },
+              ),
+              ListTile(
+                title: Text('Products'),
+                onTap: () {
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                      '/product', (Route<dynamic> route) => false);
+                },
+              ),
+              ListTile(
+                title: Text('My Cart'),
+                onTap: () {
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                      '/cart', (Route<dynamic> route) => false);
+                },
+              ),
             ],
           ),
         ),
-        body: ListView(
-          children: <Widget>[
-            Row(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Container(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      'My Order (' + orderList.length.toString() + ')',
-                      style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-                      textAlign: TextAlign.left,
-                    ),
+        body: ListView(children: <Widget>[
+          Row(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Container(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'My Order (' + orderList.length.toString() + ')',
+                    style:
+                        TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.left,
                   ),
                 ),
-              ],
-            ),
-            Column(
-              children: orderList.map((element) => ProductCard(item: element)).toList()
-            ),
-            Padding(
+              ),
+            ],
+          ),
+          Column(
+              children: orderList
+                  .map((element) => ProductCard(item: element))
+                  .toList()),
+          Padding(
               padding: const EdgeInsets.all(10.0),
               child: Text(
                 'Total: \$' + sum.toStringAsFixed(2),
                 style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.left,
-              )
-            ),
-            Padding(
+              )),
+          Padding(
               padding: const EdgeInsets.all(10.0),
               child: RaisedButton(
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
-                onPressed: () {},
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0)),
+                onPressed: () {
+                  // Code to make payment here, using the total amount referenced by: sum.toStringAsFixed(2)
+                },
                 textColor: Colors.white,
                 color: Colors.orange,
                 padding: const EdgeInsets.all(10.0),
                 child: Text(
                   "Proceed to payment",
                 ),
-              )
-            ),
-          ]
-        )
-    );
+              )),
+        ]));
   }
 }
