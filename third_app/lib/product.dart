@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import './item.dart';
 import './custom_dialog.dart';
+import './gridview_sizedbox.dart';
 
 class Product extends StatefulWidget {
   @override
@@ -29,10 +30,6 @@ class _ProductState extends State<Product> {
     Item(name: 'Tennis ball', price: '2.50', image: 'tennis_ball.jpg'),
     Item(name: 'Wire', price: '0.10', image: 'wire.jpg')
   ];
-
-  void addToCart() {
-    // Do nothing yet
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,38 +77,14 @@ class _ProductState extends State<Product> {
           children: <Widget>[
             Expanded(
               child: GridView.builder(
-                padding: const EdgeInsets.all(20.0),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    childAspectRatio: 1.0,
-                    crossAxisSpacing: 9.0,
-                    mainAxisSpacing: 9.0),
-                itemCount: itemList.length,
-                itemBuilder: (context, i) => SizedBox(
-                    child: GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      showDialog(
-                          context: context,
-                          builder: (_) => CustomDialog(
-                              'Are you sure you wish to add this product to cart?',
-                              'This product is ' +
-                                  itemList[i].name +
-                                  ' which costs \$' +
-                                  itemList[i].price,
-                              addToCart,
-                              'Add to cart'));
-                    });
-                  },
-                  child: ClipRRect(
-                    borderRadius: new BorderRadius.circular(8.0),
-                    child: Image.asset(
-                      itemList[i].image,
-                      fit: BoxFit.cover,
-                    ),
-                  )
-                )),
-              ),
+                  padding: const EdgeInsets.all(20.0),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      childAspectRatio: 1.0,
+                      crossAxisSpacing: 9.0,
+                      mainAxisSpacing: 9.0),
+                  itemCount: itemList.length,
+                  itemBuilder: (context, i) => GridviewSizedbox(itemList[i])),
             ),
           ],
         ));
